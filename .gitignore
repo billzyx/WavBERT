@@ -1,0 +1,7 @@
+.idea
+*.pt
+ADReSS-IS2020-data
+*.out
+ADReSSo21
+log/
+test_results
