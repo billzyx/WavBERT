@@ -15,7 +15,7 @@
 
 ## Dataset Results
 
-<img src="https://github.com/billzyx/WavBERT/blob/master/Wav2Vec.png
+<img src="https://github.com/billzyx/WavBERT/blob/master/Wav2Vec.png"
      alt="WavBert Data"
      style="float: center; margin-right: 10px;" />
 
