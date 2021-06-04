@@ -46,7 +46,6 @@
 
 ```
 http://www.homepages.ed.ac.uk/sluzfil/ADReSSo-2021/
-
 ```
 
 ### Python3.5 or newer is required for this project
