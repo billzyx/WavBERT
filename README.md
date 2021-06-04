@@ -111,8 +111,9 @@ Looking in links: https://download.pytorch.org/whl/torch_stable.html
 
 ## Wav2Vec
 
+Follow here: 
 ```
- Follow here: https://medium.com/@shaheenkader/how-to-install-wav2letter-dc94c3b74e97
+ https://medium.com/@shaheenkader/how-to-install-wav2letter-dc94c3b74e97
 ```
 
 # Installing Arrayfire:
