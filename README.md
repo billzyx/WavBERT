@@ -42,7 +42,7 @@
 
 # Installation
 
-### Acess to the DataSet can be found here:
+### Acess to the DataSet can be requested here:
 
 ```
 http://www.homepages.ed.ac.uk/sluzfil/ADReSSo-2021/
