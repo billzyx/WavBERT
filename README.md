@@ -40,14 +40,13 @@
 - Website: https://www.linkedin.com/in/abdelrahman-obyat-52065b173/
 - GitHub: [@ obyat ](https://github.com/obyat)
 
-# Installation
-
-### Acess to the DataSet can be requested here:
+### The challenge homepage can be found here:
 
 ```
 http://www.homepages.ed.ac.uk/sluzfil/ADReSSo-2021/
 ```
 
+# Installation
 ### Python3.5 or newer is required for this project
 
 ### Installing python3.8:
@@ -164,6 +163,7 @@ sudo apt-get install openmpi-bin openmpi-common libopenmpi-dev
 8. pip3.8 install mkl-devel
 ```
 
+
 # References:
 https://www.eriksmistad.no/getting-started-with-google-test-on-ubuntu/
 
@@ -173,6 +173,17 @@ https://askubuntu.com/questions/103643/cannot-echo-hello-x-txt-even-with-sudo
 
 https://gitlab.kitware.com/cmake/cmake/-/issues/19396
 
+
+## Acess to the DataSet can be requested below:
+
+```
+For Diagnosis task (train and test):   
+https://media.talkbank.org/dementia/English/0extra/ADReSSo21-diagnosis-train.tgz
+https://media.talkbank.org/dementia/English/0extra/ADReSSo21-diagnosis-test.tgz 
+For Progression Tasks (train and test):     
+https://media.talkbank.org/dementia/English/0extra/ADReSSo21-progression-train.tgz
+https://media.talkbank.org/dementia/English/0extra/ADReSSo21-progression-test.tgz
+```
 ## Show your support
 
 Give a ⭐️ if this project helped you!
