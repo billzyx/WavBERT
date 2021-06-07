@@ -34,18 +34,18 @@ def process_20():
 
 
 def process_21():
-    # full_wave_enhanced_audio_path = 'ADReSSo21/diagnosis/train/audio/ad'
-    # process_path(full_wave_enhanced_audio_path, audio_dir_name='audio', remove_name='')
-    # full_wave_enhanced_audio_path = 'ADReSSo21/diagnosis/train/audio/cn'
-    # process_path(full_wave_enhanced_audio_path, audio_dir_name='audio', remove_name='')
+    full_wave_enhanced_audio_path = 'ADReSSo21/diagnosis/train/audio/ad'
+    process_path(full_wave_enhanced_audio_path, audio_dir_name='audio', remove_name='')
+    full_wave_enhanced_audio_path = 'ADReSSo21/diagnosis/train/audio/cn'
+    process_path(full_wave_enhanced_audio_path, audio_dir_name='audio', remove_name='')
 
-    # full_wave_enhanced_audio_path = 'ADReSSo21/progression/train/audio/decline'
-    # process_path(full_wave_enhanced_audio_path, audio_dir_name='audio', remove_name='')
-    # full_wave_enhanced_audio_path = 'ADReSSo21/progression/train/audio/no_decline'
-    # process_path(full_wave_enhanced_audio_path, audio_dir_name='audio', remove_name='')
+    full_wave_enhanced_audio_path = 'ADReSSo21/progression/train/audio/decline'
+    process_path(full_wave_enhanced_audio_path, audio_dir_name='audio', remove_name='')
+    full_wave_enhanced_audio_path = 'ADReSSo21/progression/train/audio/no_decline'
+    process_path(full_wave_enhanced_audio_path, audio_dir_name='audio', remove_name='')
 
-    # full_wave_enhanced_audio_path = 'ADReSSo21/diagnosis/test-dist/audio'
-    # process_path(full_wave_enhanced_audio_path, audio_dir_name='audio', remove_name='')
+    full_wave_enhanced_audio_path = 'ADReSSo21/diagnosis/test-dist/audio'
+    process_path(full_wave_enhanced_audio_path, audio_dir_name='audio', remove_name='')
 
     full_wave_enhanced_audio_path = 'ADReSSo21/progression/test-dist/audio'
     process_path(full_wave_enhanced_audio_path, audio_dir_name='audio', remove_name='')

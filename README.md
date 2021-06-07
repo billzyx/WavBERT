@@ -78,8 +78,7 @@ Please note, if root system is full and no system storage available error is enc
 # Installing Torch:
 
 ```
- python3.8 -m pip --no-cache-dir install torch==1.8.1+cpu torchvision==0.9.1+cpu torchaudio==0.8.1 -f https://download.pytorch.org/whl/torch_stable.html
-Looking in links: https://download.pytorch.org/whl/torch_stable.html
+ python3.8 -m pip --no-cache-dir install torch==1.7.0 torchvision==0.8.0 torchaudio==0.7.0
 ```
 
  Customization of Pytorch for different builds can be found here:
@@ -97,7 +96,7 @@ Looking in links: https://download.pytorch.org/whl/torch_stable.html
 # Installing Additional Libraries:
 
 ```
-1. python3.8 -m pip install transformers
+1. python3.8 -m pip install transformers==4.0.0
 
 2. python3.8 -m pip install tqdm
 3. python3.8 -m pip install numpy
@@ -184,6 +183,35 @@ For Progression Tasks (train and test):
 https://media.talkbank.org/dementia/English/0extra/ADReSSo21-progression-train.tgz
 https://media.talkbank.org/dementia/English/0extra/ADReSSo21-progression-test.tgz
 ```
+
+## Procedures for training:
+
+```
+# Get Wav2vec embedding
+python3 audio_asr_to_text.py
+
+# Get pause thresholds
+python3 check_pause_length.py
+
+# Train WavBERT model (parameters may be needed, check text_train.py)
+python3 text_train.py
+# Or
+sh run2.sh
+```
+
+
+## Procedures for pre-training:
+
+```
+# Download LibriSpeech dataset, merge train-clean-100 train-clean-360 train-other-500 to train_960
+
+# Get Wav2vec embedding of LibriSpeech dataset
+python3 pre_train_audio_asr_to_text.py
+
+# Pre-train WavBERT model (ASR embedding conversion part)
+sh run.sh
+```
+
 ## Show your support
 
 Give a ⭐️ if this project helped you!
