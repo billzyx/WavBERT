@@ -30,7 +30,7 @@
 
 👤 **Youxiang Zhu**
 
-- Website: http://www.faculty.umb.edu/xiaohui.liang/mobcp.html
+- Website: https://billzyx.github.io/
 - GitHub: [@ billzyx ](https://github.com/billzyx)
 
 ## Author
@@ -47,130 +47,79 @@ http://www.homepages.ed.ac.uk/sluzfil/ADReSSo-2021/
 ```
 
 # Installation
-### Python3.5 or newer is required for this project
 
-### Installing python3.8:
+Update 22-10-20: fit recent dependency change
 
-```
-1. sudo apt update
-2. sudo apt install software-properties-common
-3. sudo add-apt-repository ppa:deadsnakes/ppa
-4. sudo apt install python3.8
-5. sudo apt install python3-pip
-```
+## Basic dependencies (root required)
 
-## Installing env:
-
-```
-sudo apt-get install python3.8-venv
+```shell
+sudo apt-get install apt-utils gcc libpq-dev libsndfile-dev
+sudo apt-get install build-essential cmake libboost-system-dev libboost-thread-dev libboost-program-options-dev libboost-test-dev libeigen3-dev zlib1g-dev libbz2-dev liblzma-dev
+sudo apt-get install libsndfile1-dev libopenblas-dev libfftw3-dev libgflags-dev libgoogle-glog-dev
 ```
 
-Please note, if root system is full and no system storage available error is encountered, restarting system in order also clear root cache and pip cache is recommended.
+## Python dependencies (using conda)
 
+```shell
+conda create --name wavbert python=3.8 -y
+conda activate wavbert
+conda install pytorch==1.12.0 torchvision==0.13.0 torchaudio==0.12.0 cudatoolkit=11.3 -c pytorch
 
-## Please note, the following must be installed in env variable using the following commands:
-
-```
-1. python3.8 -m venv env
-2. source env/bin/activate
-```
-
-# Installing Torch:
-
-```
- python3.8 -m pip --no-cache-dir install torch==1.7.0 torchvision==0.8.0 torchaudio==0.7.0
+pip install fairseq==0.10.2 transformers==4.18.0 datasets==2.1.0
+pip install matplotlib tqdm librosa editdistance sentencepiece jiwer
 ```
 
- Customization of Pytorch for different builds can be found here:
- 
-``` 
- https://pytorch.org/get-started/locally/
+## Clone WavBERT project
+
+```shell
+git clone https://github.com/billzyx/WavBERT.git
+cd WavBERT
+
+export WavBERT_PATH=/path/to/WavBERT
+
+mkdir external_lib
+cd external_lib
 ```
 
-##  Please note, if pip wheel errors are encountered, reinstalling pip wheel is recommended:
+## Install Kenlm
 
-```
- pip install wheel
-```
-
-# Installing Additional Libraries:
-
-```
-1. python3.8 -m pip install transformers==4.0.0
-
-2. python3.8 -m pip install tqdm
-3. python3.8 -m pip install numpy
-
-4. python3.8 -m pip install matplotlib
-5. python3.8 -m pip install jiwer
-
-6. python3.8 -m pip install librosa
-7. python3.8 -m pip install fairseq
-
-8. python3.8 -m pip install datasets
-
-9. python3.8 -m pip --no-cache-dir install editdistance
-10. python3.8 -m pip --no-cache-dir install sentencepiece
+```shell
+git clone https://github.com/kpu/kenlm.git
+cd kenlm
+git checkout d70e28403f07e88b276c6bd9f162d2a428530f2e
+mkdir -p build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DKENLM_MAX_ORDER=20 -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+make -j 16
+export KENLM_ROOT_DIR=$WavBERT_PATH'/external_lib/kenlm/'
+cd ../..
 ```
 
-## Wav2Vec
+## Install Wav2letter
 
-Follow here: 
-```
- https://medium.com/@shaheenkader/how-to-install-wav2letter-dc94c3b74e97
-```
+```shell
+# Optional
+export USE_CUDA=0
 
-# Installing Arrayfire:
-
-```
-1. sudo apt-get install cmake g++
-2. wget https://arrayfire.s3.amazonaws.com/3.6.1/ArrayFire-no-gl-v3.6.1_Linux_x86_64.sh
-3. chmod u+x ArrayFire-no-gl-v3.6.1_Linux_x86_64.sh
-4. sudo bash ArrayFire-no-gl-v3.6.1_Linux_x86_64.sh --include-subdir --prefix=/opt
-5. sudo bash -c 'echo /opt/arrayfire-no-gl/lib > /etc/ld.so.conf.d/arrayfire.conf'
-6. sudo ldconfig
+git clone -b v0.2 https://github.com/facebookresearch/wav2letter.git
+cd wav2letter/bindings/python
+pip install -e .
+cd ../../../..
 ```
 
-# Installing GoogleTest:
+## Download pre-training weights
 
-```
-1. sudo apt-get install libgtest-dev
-2. sudo apt-get install cmake # install cmake
-3. cd /usr/src/gtest
-4. sudo cmake CMakeLists.txt
-5. sudo make
-6. cd lib
-7. sudo cp \*.a /usr/lib
+```shell
+cd pre_train_weights
+wget https://dl.fbaipublicfiles.com/fairseq/wav2vec/wav2vec_vox_960h_pl.pt
+cd ..
 ```
 
-# Installing OpenMPI:
+## Test Wav2vec ASR inference
 
+```shell
+CUDA_VISIBLE_DEVICES=0 python recognize.py --wav_path /path/to/xxx.wav
 ```
-sudo apt-get install openmpi-bin openmpi-common libopenmpi-dev
-```
-
-# Installing CUDA:
-
-```
-1. wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
-2. sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
-3. sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub
-4. sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/
-5. sudo apt-get update
-6. sudo apt-get -y install cuda
-7. sudo apt install nvidia-cuda-toolkit
-8. pip3.8 install mkl-devel
-```
-
-
-# References:
-https://www.eriksmistad.no/getting-started-with-google-test-on-ubuntu/
-
-https://arrayfire.org/docs/installing.htm
-
-https://askubuntu.com/questions/103643/cannot-echo-hello-x-txt-even-with-sudo
-
-https://gitlab.kitware.com/cmake/cmake/-/issues/19396
 
 
 ## Acess to the DataSet can be requested below:
