@@ -49,6 +49,7 @@ http://www.homepages.ed.ac.uk/sluzfil/ADReSSo-2021/
 # Installation
 
 Update 22-10-20: fit recent dependency change
+
 Update 24-05-16: Need to downgrade numpy to 1.19 to fit the old dependency
 
 ## Basic dependencies (root required)
