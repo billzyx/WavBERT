@@ -49,6 +49,7 @@ http://www.homepages.ed.ac.uk/sluzfil/ADReSSo-2021/
 # Installation
 
 Update 22-10-20: fit recent dependency change
+Update 24-05-16: Need to downgrade numpy to 1.19 to fit the old dependency
 
 ## Basic dependencies (root required)
 
@@ -67,6 +68,8 @@ conda install pytorch==1.12.0 torchvision==0.13.0 torchaudio==0.12.0 cudatoolkit
 
 pip install fairseq==0.10.2 transformers==4.18.0 datasets==2.1.0
 pip install matplotlib tqdm librosa editdistance sentencepiece jiwer
+# Downgrade numpy to 1.19
+pip install numpy==1.19 numba==0.51.0 librosa==0.8.0 resampy==0.2.2 pandas==1.0.5
 ```
 
 ## Clone WavBERT project
